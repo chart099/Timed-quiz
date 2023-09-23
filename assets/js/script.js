@@ -88,8 +88,13 @@ function checkAnswer(event) {
     }
 };
 
+var finalScore = document.getElementById("final-score");
+
 function endGame() {
-    
+    questionPage.style.display = "none";
+    finishedPage.style.display = "block";
+    clearInterval(timerObject);
+    finalScore.textContent = "Your score is: " + (timeCounter + score);
 }
 
 answer1.addEventListener("click", checkAnswer);
@@ -97,6 +102,11 @@ answer2.addEventListener("click", checkAnswer);
 answer3.addEventListener("click", checkAnswer);
 answer4.addEventListener("click", checkAnswer);
 
+var submitInitials = document.getElementById("submit-initials");
+
+submitInitials.addEventListener("click", function() {
+    var user
+})
 
 
 
