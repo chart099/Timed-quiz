@@ -5,7 +5,7 @@ var highschorePage = document.getElementById("highscore-page");
 
 var timer = document.getElementById("timer");
 var timerObject;
-var timeCounter = 60;
+var timeCounter = 100;
 
 var questionBank = [
     {
@@ -37,7 +37,11 @@ var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var answer4 = document.getElementById("answer4");
 
+var feedback = document.getElementById("feedback");
+
 var startButton = document.getElementById("start-quiz");
+
+var score = 0;
 
 questionPage.style.display = "none";
 finishedPage.style.display = "none";
@@ -51,7 +55,7 @@ startButton.addEventListener("click", function(){
         if (timeCounter > 0) {
             timeCounter--;
         } else {
-            console.log("game over");
+            endGame();
         }
     }, 1000)
     displayCurrentQuestion();
@@ -65,6 +69,33 @@ function displayCurrentQuestion() {
     answer4.textContent = questionBank[currentQuestion].answers[3];
 
 }
+
+function checkAnswer(event) {
+    var userAnswer = event.target.textContent;
+    if (userAnswer === questionBank[currentQuestion].correctAnswer) {
+        score ++;
+        feedback.textContent = "Congrats! You got that correct!";
+    } else {
+        feedback.textContent = "Sorry, that's not correct";
+        timeCounter -= 5; 
+    }
+
+    if (currentQuestion < questionBank.length - 1) {
+        currentQuestion++;
+        displayCurrentQuestion();
+    } else {
+        endGame();
+    }
+};
+
+function endGame() {
+    
+}
+
+answer1.addEventListener("click", checkAnswer);
+answer2.addEventListener("click", checkAnswer);
+answer3.addEventListener("click", checkAnswer);
+answer4.addEventListener("click", checkAnswer);
 
 
 
