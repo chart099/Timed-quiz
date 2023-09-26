@@ -141,7 +141,6 @@ function displayHighScore() {
     for (let i=0; i < scoreList.length; i++) {
         var scoreItem = document.createElement("li");
         scoreItem.textContent = scoreList[i].score+ "   " + scoreList[i].user  ;
-        
         scores.append(scoreItem);
     }
  }
@@ -149,11 +148,11 @@ function displayHighScore() {
 goBack.addEventListener("click", function() {
     finishedPage.style.display = "block";
     highscorePage.style.display = "none";
-    scores.style.display = "none";
 })
 
 clearHS.addEventListener("click", function() {
     localStorage.removeItem("code-quiz");
+    scores.textContent = ""
 })
 
 
