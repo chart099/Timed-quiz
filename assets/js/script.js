@@ -12,24 +12,24 @@ var timeCounter = 100;
 // bank of questions for quiz
 var questionBank = [
     {
-        question: "insert question 1",
-        answers: ["choice1", "choice2", "choice3", "choice4"],
-        correctAnswer: "choice1"
+        question: "What is JavaScript?",
+        answers: ["A coding language", "A type of sandwich", "A sneaker brand", "A human language"],
+        correctAnswer: "A coding language"
     },
     {
-        question: "insert question 2",
-        answers: ["choice1", "choice2", "choice3", "choice4"],
-        correctAnswer: "choice1"
+        question: "What is the first index in an array?",
+        answers: ["0", "1", "2", "-1"],
+        correctAnswer: "0"
     },
     {
-        question: "insert question 3",
-        answers: ["choice1", "choice2", "choice3", "choice4"],
-        correctAnswer: "choice1"
+        question: "Who created the first programming language?",
+        answers: ["Lord Byron", "Shakespeare", "Ada Lovelace", "Mary Shelley"],
+        correctAnswer: "Ada Lovelace"
     },
     {
-        question: "insert question 4",
-        answers: ["choice1", "choice2", "choice3", "choice4"],
-        correctAnswer: "choice1"
+        question: "What is the correct answer",
+        answers: ["Not this one", "Not this one either", "CORRECT ANSWER", "You went too far, go back"],
+        correctAnswer: "CORRECT ANSWER"
     }
 ];
 
@@ -84,13 +84,14 @@ function checkAnswer(event) {
     if (userAnswer === questionBank[currentQuestion].correctAnswer) {
         score ++;
         feedback.textContent = "Congrats! You got that correct!";
+        currentQuestion ++;
     } else {
         feedback.textContent = "Sorry, that's not correct";
-        timeCounter -= 5; 
+        timeCounter -= 15; 
+        
     }
 
-    if (currentQuestion < questionBank.length - 1) {
-        currentQuestion++;
+    if (currentQuestion < questionBank.length) {
         displayCurrentQuestion();
     } else {
         endGame();
