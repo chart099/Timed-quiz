@@ -1,3 +1,20 @@
-h1 {
-    color: blue; 
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(50, 88, 166); 
+    color: white; 
+    border: none;
+    padding: 10px; 
+    margin-bottom: 5px;
+}
+
+#question-page > ol {
+    list-style: none;
+}
+
+#highscore-page > ul {
+    list-style: none;
 }

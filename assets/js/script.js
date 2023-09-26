@@ -128,14 +128,15 @@ submitInitials.addEventListener("click", function() {
     finishedPage.style.display = "none";
     highscorePage.style.display = "block";
     displayHighScore()
-})
+   })
 
 
-
+// variables for highscore page
 var goBack = document.getElementById("go-back");
 var clearHS = document.getElementById("clear-hs");
 var scores = document.getElementById("scores");
 
+// function for displaying high dcore
 function displayHighScore() {
     var scoreList = JSON.parse(localStorage.getItem("code-quiz"));
     for (let i=0; i < scoreList.length; i++) {
@@ -145,14 +146,17 @@ function displayHighScore() {
     }
  }
 
+//  event listener for go back button
 goBack.addEventListener("click", function() {
     finishedPage.style.display = "block";
     highscorePage.style.display = "none";
 })
 
+// event listener clear highscore button
 clearHS.addEventListener("click", function() {
+    scores.textContent = "";
+
     localStorage.removeItem("code-quiz");
-    scores.textContent = ""
 })
 
 
